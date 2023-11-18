@@ -4,6 +4,7 @@ import 'package:instagram_clone/common/widget/custom_button.dart';
 import 'package:instagram_clone/common/widget/custom_textfield.dart';
 
 class AuthScreen extends StatefulWidget {
+  static const String routeName = '/auth-screen';
   const AuthScreen({super.key});
 
   @override
