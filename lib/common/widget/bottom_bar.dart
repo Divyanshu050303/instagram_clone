@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/features/Home/screen/home_screen.dart';
-import 'package:instagram_clone/features/profile/screen/Profile.dart';
+import 'package:instagram_clone/features/profile/screen/Profile.dart';import 'package:instagram_clone/features/search/Screen/Search.dart';
 
 class BottomBar extends StatefulWidget {
   const BottomBar({super.key});
@@ -15,7 +15,7 @@ class _BottomBarState extends State<BottomBar> {
   final double bottomBarWidth = 0;
   List<Widget> pages = [
       HomeScreen(),
-    const Text("Search Page"),
+    const Search(),
     const Text("post Page"),
     const Text("real Page"),
     const Profile()
