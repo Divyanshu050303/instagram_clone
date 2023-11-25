@@ -3,6 +3,7 @@ import 'package:instagram_clone/features/Home/screen/home_screen.dart';
 import 'package:instagram_clone/features/profile/screen/Profile.dart';import 'package:instagram_clone/features/search/Screen/Search.dart';
 
 class BottomBar extends StatefulWidget {
+  static const String routeName = '/actual-home';
   const BottomBar({super.key});
 
   @override
