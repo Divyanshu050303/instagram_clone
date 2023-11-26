@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/features/Home/screen/home_screen.dart';
-import 'package:instagram_clone/features/profile/screen/Profile.dart';import 'package:instagram_clone/features/search/Screen/Search.dart';
+import 'package:instagram_clone/features/profile/screen/Profile.dart';
+import 'package:instagram_clone/features/reel/screen/reel.dart';import 'package:instagram_clone/features/search/Screen/Search.dart';
 
 class BottomBar extends StatefulWidget {
   static const String routeName = '/actual-home';
@@ -18,7 +19,7 @@ class _BottomBarState extends State<BottomBar> {
       HomeScreen(),
     const Search(),
     const Text("post Page"),
-    const Text("real Page"),
+    const Reel(),
     const Profile()
   ];
 
