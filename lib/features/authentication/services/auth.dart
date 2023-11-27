@@ -71,7 +71,6 @@ class AuthService {
           });
     } catch (err) {
       showSnackBar(context, err.toString());
-
     }
   }
 }
