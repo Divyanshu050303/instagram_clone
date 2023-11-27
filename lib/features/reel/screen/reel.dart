@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class Reel extends StatefulWidget {
+  static const String routeName = '/real-screen';
   const Reel({super.key});
 
   @override
