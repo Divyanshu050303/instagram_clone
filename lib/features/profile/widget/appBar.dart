@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/features/Home/screen/home_screen.dart';
+import 'package:instagram_clone/features/add_post/screen/addpostscreen.dart';
+import 'package:instagram_clone/features/reel/screen/reel.dart';
 
 class AppBarProfile extends StatelessWidget {
   const AppBarProfile({super.key});
@@ -70,13 +73,18 @@ class AppBarProfile extends StatelessWidget {
                       border: Border.all(width: 0.5, color: Colors.grey)),
                 ),
                 const SizedBox(height: 20,),
-                const Row(
-                  children: [
-                  SizedBox(width: 20,),
-                  Icon(Icons.grid_on_outlined,size: 30,),
+                InkWell(
+                  onTap: (){
+                   Navigator.pushNamed(context, AddPost.routeName);
+                  },
+                  child: const Row(
+                    children: [
                     SizedBox(width: 20,),
-                  Text("Post",style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
-                ],),
+                    Icon(Icons.grid_on_outlined,size: 30,),
+                      SizedBox(width: 20,),
+                    Text("Post",style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
+                  ],),
+                ),
                 const SizedBox(height: 10,),
                 Padding(
                   padding: const EdgeInsets.only(left: 70,right: 30),
