@@ -4,12 +4,14 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/constant/utils.dart';
+import 'package:instagram_clone/features/add_post/services/add_post_servises.dart';
 
 import '../../../common/widget/custom_textfield.dart';
 
 
 class AddPost extends StatefulWidget {
   static const String routeName = '/add-post';
+
   const AddPost({super.key});
 
   @override
@@ -17,21 +19,26 @@ class AddPost extends StatefulWidget {
 }
 
 class _AddPostState extends State<AddPost> {
-  final TextEditingController productNameController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
-  final TextEditingController priceController = TextEditingController();
-  final TextEditingController quantityController = TextEditingController();
-  String category = 'Mobiles';
   List<File> images = [];
   final _addProductFormKey = GlobalKey<FormState>();
+  AddPostServices addPostServices = AddPostServices();
 
   @override
   void dispose() {
     super.dispose();
-    productNameController.dispose();
     descriptionController.dispose();
-    priceController.dispose();
-    quantityController.dispose();
+  }
+
+  void posting() {
+    print("button tapped");
+    if (_addProductFormKey.currentState!.validate() && images.isNotEmpty) {
+      addPostServices.AddPost(context: context,
+          name: "Divyanshu",
+          description: descriptionController.text,
+          like: 0,
+          images: images);
+    }
   }
 
   void selectImages() async {
@@ -43,8 +50,8 @@ class _AddPostState extends State<AddPost> {
 
   @override
   Widget build(BuildContext context) {
-    MediaQueryData mediaQueryData=MediaQuery.of(context);
-    return  Scaffold(
+    MediaQueryData mediaQueryData = MediaQuery.of(context);
+    return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(50),
         child: AppBar(
@@ -63,17 +70,18 @@ class _AddPostState extends State<AddPost> {
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Column(
               children: [
-                  SizedBox(height:mediaQueryData.size.height*0.2),
+                SizedBox(height: mediaQueryData.size.height * 0.2),
                 images.isNotEmpty
                     ? CarouselSlider(
                   items: images.map(
                         (i) {
                       return Builder(
-                        builder: (BuildContext context) => Image.file(
-                          i,
-                          fit: BoxFit.cover,
-                          height: 200,
-                        ),
+                        builder: (BuildContext context) =>
+                            Image.file(
+                              i,
+                              fit: BoxFit.cover,
+                              height: 200,
+                            ),
                       );
                     },
                   ).toList(),
@@ -116,17 +124,13 @@ class _AddPostState extends State<AddPost> {
                   ),
                 ),
                 const SizedBox(height: 30),
-                CustomTextField(
-                  controller: productNameController,
-                  hintText: 'Name',
-                ),
                 const SizedBox(height: 10),
                 CustomTextField(
                   controller: descriptionController,
                   hintText: 'Description',
                 ),
                 const SizedBox(height: 10),
-                 ElevatedButton(onPressed: (){}, child: Text("Add Post"))
+                ElevatedButton(onPressed: posting, child: const Text("Add Post"))
               ],
             ),
           ),
