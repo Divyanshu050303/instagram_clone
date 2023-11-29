@@ -15,6 +15,7 @@ class _ReelState extends State<Reel> {
   int _volume = 0;
   IconData _currentIcon = Icons.volume_up_outlined;
   bool _showContainer = false;
+  bool _visible=true;
 
   @override
   void initState() {
@@ -65,11 +66,13 @@ class _ReelState extends State<Reel> {
         onLongPressStart: (LongPressStartDetails details) {
           setState(() {
             _videoPlayerController.pause();
+            _visible=false;
           });
         },
         onLongPressEnd: (LongPressEndDetails details) {
           setState(() {
             _videoPlayerController.play();
+            _visible=true;
           });
         },
         onTap: () {
@@ -105,7 +108,7 @@ class _ReelState extends State<Reel> {
             ),
             Positioned(
               top: mediaQueryData.size.height * 0.05,
-              child: Row(
+              child: _visible?Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   SizedBox(
@@ -127,12 +130,12 @@ class _ReelState extends State<Reel> {
                     onPressed: () {},
                   ),
                 ],
-              ),
+              ):const SizedBox(),
             ),
             Positioned(
                 top: mediaQueryData.size.height * 0.5,
                 left: mediaQueryData.size.width * 0.85,
-                child: Column(
+                child: _visible?Column(
                   children: [
                     IconButton(
                         onPressed: () {},
@@ -188,10 +191,11 @@ class _ReelState extends State<Reel> {
                       color: Colors.white,
                     )
                   ],
-                )),
+                ):const SizedBox()
+            ),
             Positioned(
                 top: mediaQueryData.size.height * 0.78,
-                child: Row(
+                child: _visible?Row(
                   children: [
                     SizedBox(
                       width: mediaQueryData.size.width * 0.02,
@@ -230,7 +234,8 @@ class _ReelState extends State<Reel> {
                       ),
                     )
                   ],
-                )),
+                ):const SizedBox()
+            ),
             Positioned(
                 top: mediaQueryData.size.height * 0.45,
                 left: mediaQueryData.size.width * 0.45,
