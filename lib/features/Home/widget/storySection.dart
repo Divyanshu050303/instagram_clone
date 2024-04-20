@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/features/Home/widget/yourStory.dart';
+import 'package:flutter_brand_palettes/flutter_brand_palettes.dart';
 
 class StorySection extends StatefulWidget {
   const StorySection({super.key});
@@ -12,9 +12,10 @@ class _StorySectionState extends State<StorySection> {
   List<Map<String, String>> story=[{},{},{},{}];
   @override
   Widget build(BuildContext context) {
+
   MediaQueryData mediaQueryData =MediaQuery.of(context);
     return SizedBox(
-      width: mediaQueryData.size.width,
+      width:  mediaQueryData.size.height,
       height: mediaQueryData.size.height*0.15,
 
       child: ListView.builder(
@@ -23,26 +24,18 @@ class _StorySectionState extends State<StorySection> {
           itemCount: story.length,
           itemBuilder:(context, index){
         return   Padding(
-          padding: EdgeInsets.only(left: 15.0),
+          padding: const EdgeInsets.only(left: 15.0, top: 7),
           child: Column(
             children: [
-              Container(
-                width:mediaQueryData.size.width*0.22,
-                height:mediaQueryData.size.height*0.1,
-                decoration: BoxDecoration(
-                color: Colors.black,
-                  border: Border.all(
-                    width: 2,
-                    color: Colors.blue,
-                  ),
-                  borderRadius: BorderRadius.circular(100),
-                ),
-                child: CircleAvatar(
-                  radius: 42,
+              CircleAvatar(
+                radius: 41,
+                backgroundColor: Colors.orange,
+                child: const CircleAvatar(
+                  radius: 39,
                 ),
               ),
-              SizedBox(height: 5,),
-              Text("Name"),
+              const SizedBox(height: 5,),
+              const Text("Name"),
             ],
           ),
         );

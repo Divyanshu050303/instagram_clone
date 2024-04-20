@@ -3,6 +3,8 @@ import 'package:instagram_clone/features/Home/screen/home_screen.dart';
 import 'package:instagram_clone/features/profile/screen/Profile.dart';
 import 'package:instagram_clone/features/reel/screen/reel.dart';import 'package:instagram_clone/features/search/Screen/Search.dart';
 
+import '../../features/add_post/screen/addpostscreen.dart';
+
 class BottomBar extends StatefulWidget {
   static const String routeName = '/actual-home';
   const BottomBar({super.key});
@@ -18,7 +20,7 @@ class _BottomBarState extends State<BottomBar> {
   List<Widget> pages = [
       HomeScreen(),
     const Search(),
-    const Text("post Page"),
+    const AddPost(),
     const Reel(),
     const Profile()
   ];

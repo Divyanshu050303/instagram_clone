@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/features/Home/screen/home_screen.dart';
 import 'package:instagram_clone/features/add_post/screen/addpostscreen.dart';
-import 'package:instagram_clone/features/reel/screen/reel.dart';
+
 
 class AppBarProfile extends StatelessWidget {
   const AppBarProfile({super.key});
@@ -43,6 +42,7 @@ class AppBarProfile extends StatelessWidget {
   void _showAddPostBottomSheet(BuildContext context) {
     MediaQueryData mediaQueryData = MediaQuery.of(context);
     showModalBottomSheet(
+      isScrollControlled: true,
         context: context,
         builder: (BuildContext context) {
           return SizedBox(

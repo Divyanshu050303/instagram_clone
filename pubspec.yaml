@@ -38,6 +38,8 @@ dependencies:
   dotted_border: ^2.1.0
   file_picker: ^6.1.1
   cloudinary_public: ^0.21.0
+  flutter_brand_palettes: ^0.5.1
+  insta_assets_picker: ^2.3.0
 
 
   # The following adds the Cupertino Icons font to your application.

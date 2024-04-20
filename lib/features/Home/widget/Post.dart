@@ -22,22 +22,25 @@ class _PostState extends State<Post> {
           const SizedBox(
             height: 10,
           ),
-          Row(
-            children: [
-              const SizedBox(
-                width: 12,
-              ),
-              const CircleAvatar(),
-              const SizedBox(
-                width: 12,
-              ),
-              const Text("Name"),
-              SizedBox(
-                width: mediaQueryData.size.width * 0.41,
-              ),
-              ElevatedButton(onPressed: () {}, child: const Text("Follow")),
-              IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
-            ],
+          Flex(
+            direction: Axis.vertical,
+            children:[ Row(
+              children: [
+                const SizedBox(
+                  width: 12,
+                ),
+                const CircleAvatar(),
+                const SizedBox(
+                  width: 12,
+                ),
+                const Text("Name"),
+                SizedBox(
+                  width: mediaQueryData.size.width * 0.33,
+                ),
+                ElevatedButton(onPressed: () {}, child: const Text("Follow")),
+                IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
+              ],
+            ),]
           ),
           const SizedBox(
             height: 10,
@@ -72,12 +75,12 @@ class _PostState extends State<Post> {
                 width: 14,
               ),
               Image.asset(
-                'assets/send.png',
+                'assets/send1.png',
                 width: 30,
                 height: 28,
               ),
               SizedBox(
-                width: mediaQueryData.size.width * 0.5,
+                width: mediaQueryData.size.width * 0.48,
               ),
               Image.asset(
                 'assets/save.png',
@@ -86,10 +89,16 @@ class _PostState extends State<Post> {
               ),
             ],
           ),
-          SizedBox(height: 10,),
-          Text("123124 likes", style: TextStyle(fontWeight: FontWeight.w700),),
-          SizedBox(height: 5,),
-          Text("name  and the caption ",style: TextStyle(fontWeight: FontWeight.w700))
+          const SizedBox(height: 10,),
+          Padding(
+            padding: const EdgeInsets.only(left: 18.0),
+            child: const Text("123124 likes", style: TextStyle(fontWeight: FontWeight.w700),),
+          ),
+          const SizedBox(height: 5,),
+          Padding(
+            padding: const EdgeInsets.only(left: 18.0),
+            child: const Text("name  and the caption ",style: TextStyle(fontWeight: FontWeight.w700)),
+          )
         ],
       ),
     );

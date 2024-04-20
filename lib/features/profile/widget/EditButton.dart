@@ -11,11 +11,11 @@ class EditButton extends StatelessWidget {
         Expanded(
             child: ElevatedButton(
                 onPressed: () {}, child: const Text("Edit profile"))),
-        const SizedBox(width: 10,),
+        const SizedBox(width: 8,),
         Expanded(
             child: ElevatedButton(
-                onPressed: () {}, child: const Text("Share profile"))),
-        const SizedBox(width: 10,),
+                onPressed: () {}, child: const Text("Share profile", style: TextStyle(fontSize: 13.9),))),
+        const SizedBox(width: 8,),
         ElevatedButton(
             onPressed: () {},
             child: const Icon(
